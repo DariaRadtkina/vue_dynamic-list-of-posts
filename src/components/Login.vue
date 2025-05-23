@@ -1,8 +1,8 @@
 <script setup>
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
-import { getUserInfo } from './api/user';
-import { useUserStore } from './stores/userStore';
+import { getUserInfo } from '../api/user';
+import { useUserStore } from '../stores/userStore';
 
 const userEmail = ref('');
 const errorMessage = ref(null);
@@ -15,7 +15,7 @@ async function handleSubmit() {
     userStore.setUser(userData[0])
     router.push('/');
   } catch (error) {
-    error.value = 'Error fetching user: ' + err.message;
+    error.value = 'Error fetching user: ' + error.message;
   }
 }
 </script>

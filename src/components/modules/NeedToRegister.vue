@@ -10,7 +10,7 @@
         class="input"
         placeholder="Enter your name"
         required
-        minlength="{4}"
+        minlength="4"
       />
 
       <span class="icon is-small is-left">

@@ -2,7 +2,7 @@
 import { onMounted, watch } from 'vue';
 import InputField from './InputField.vue';
 import TextAreaField from './TextAreaField.vue';
-import { usePostStore } from '../stores/posts';
+import { usePostStore } from '../../stores/posts';
 
 const postStore = usePostStore();
 

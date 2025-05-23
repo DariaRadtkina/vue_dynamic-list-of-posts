@@ -4,8 +4,8 @@ import Comment from './Comment.vue';
 import NoCommentsYet from './NoCommentsYet.vue';
 import Loader from '../loader/Loader.vue';
 import AddComment from './AddComment.vue';
-import { usePostStore } from '../stores/posts';
-import { useCommentStore } from '../stores/comments';
+import { usePostStore } from '../../stores/posts';
+import { useCommentStore } from '../../stores/comments';
 
 const postStore = usePostStore();
 const commentStore = useCommentStore();

@@ -1,8 +1,8 @@
 <script setup>
 import { onMounted, ref } from 'vue';
-import { useUserStore } from './stores/userStore';
-import { usePostStore } from './stores/posts';
-import { useCommentStore } from './stores/comments';
+import { useUserStore } from '../stores/userStore';
+import { usePostStore } from '../stores/posts';
+import { useCommentStore } from '../stores/comments';
 import Loader from './loader/Loader.vue';
 import Header from './modules/Header.vue';
 import SideBar from '../components/sidebar/SideBar.vue';

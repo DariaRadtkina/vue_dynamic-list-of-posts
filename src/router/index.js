@@ -1,7 +1,7 @@
 import { createWebHistory, createRouter } from 'vue-router'
 
-import PostsList from '../PostsList.vue';
-import Login from '../Login.vue';
+import PostsList from '../components/PostsList.vue';
+import Login from '../components/Login.vue';
 
 const routes = [
   { path: '/', component: PostsList },

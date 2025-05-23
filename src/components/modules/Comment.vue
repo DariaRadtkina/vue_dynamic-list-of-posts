@@ -1,5 +1,5 @@
 <script setup>
-import { useCommentStore } from '../stores/comments';
+import { useCommentStore } from '../../stores/comments';
 
 const commentStore = useCommentStore();
 
