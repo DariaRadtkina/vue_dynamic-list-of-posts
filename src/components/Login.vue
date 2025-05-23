@@ -15,7 +15,7 @@ async function handleSubmit() {
     userStore.setUser(userData[0])
     router.push('/');
   } catch (error) {
-    error.value = 'Error fetching user: ' + error.message;
+    errorMessage.value = 'Error fetching user: ' + error.message;
   }
 }
 </script>

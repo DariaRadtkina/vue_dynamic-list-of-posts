@@ -1,8 +1,8 @@
 <script setup>
 import InputField from './InputField.vue';
 import TextAreaField from './TextAreaField.vue';
-import { usePostStore } from '../../stores/posts';
-import { useCommentStore } from '../../stores/comments';
+import { usePostStore } from '../../stores/postsStore';
+import { useCommentStore } from '../../stores/commentsStore';
 
 const postStore = usePostStore();
 const commentStore = useCommentStore();
@@ -61,8 +61,8 @@ function clearBodyError() {
 </script>
 <template>
   <div class="content">
-    <h2 v-if="idPost">Create new post</h2>
-    <h2 v-else>Post editing</h2>
+    <h2 v-if="idPost">Create new comment</h2>
+    <h2 v-else>Comment editing</h2>
 
     <form @submit.prevent="handleAddComment(idPost)">
       <div class="field" data-cy="NameField">

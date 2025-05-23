@@ -69,7 +69,7 @@ export const useCommentStore = defineStore('comment', {
     toggleCommentForm() {
       this.isCommentFormVisible = !this.isCommentFormVisible;
       if (!this.isCommentFormVisible) {
-        this.errorMessages.fetch = '';
+        this.errorMessages.fetch = null;
       }
     },
   },

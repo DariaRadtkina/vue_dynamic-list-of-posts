@@ -1,8 +1,8 @@
 <script setup>
 import { onMounted, ref } from 'vue';
 import { useUserStore } from '../stores/userStore';
-import { usePostStore } from '../stores/posts';
-import { useCommentStore } from '../stores/comments';
+import { usePostStore } from '../stores/postsStore';
+import { useCommentStore } from '../stores/commentsStore';
 import Loader from './loader/Loader.vue';
 import Header from './modules/Header.vue';
 import SideBar from '../components/sidebar/SideBar.vue';
@@ -18,7 +18,7 @@ onMounted(async () => {
       await postStore.loadPosts(userId);
     } catch (err) {
       postStore.errorMessages.fetch = 'Error fetching posts: ' + err.message;
-    } 
+    }
   } else {
     postStore.errorMessages.fetch = 'No user data found. Please login again.';
   }
@@ -27,7 +27,6 @@ onMounted(async () => {
 async function startEditingComment(comment) {
   commentStore.startEditing(comment);
 }
-
 </script>
 
 <template>
@@ -90,7 +89,8 @@ async function startEditingComment(comment) {
         <div
           class="tile is-parent is-8-desktop Sidebar"
           :class="{
-            'Sidebar--open': postStore.isAddPostBtnActive || postStore.isCommentDetailsActive,
+            'Sidebar--open':
+              postStore.isAddPostBtnActive || postStore.isCommentDetailsActive,
           }"
         >
           <SideBar />

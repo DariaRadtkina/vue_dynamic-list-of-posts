@@ -2,7 +2,7 @@
 import { onMounted, watch } from 'vue';
 import InputField from './InputField.vue';
 import TextAreaField from './TextAreaField.vue';
-import { usePostStore } from '../../stores/posts';
+import { usePostStore } from '../../stores/postsStore';
 
 const postStore = usePostStore();
 
@@ -15,7 +15,7 @@ onMounted(() => {
 
 watch(
   () => postStore.editingPost,
-  (newValue) => {
+  newValue => {
     if (newValue) {
       postStore.newPost.title = newValue.title;
       postStore.newPost.body = newValue.body;
@@ -86,10 +86,18 @@ function clearBodyError() {
 
       <div class="field is-grouped">
         <div class="control">
-          <button type="submit" class="button is-link">{{ postStore.editingPost ? 'Save' : 'Create' }}</button>
+          <button type="submit" class="button is-link">
+            {{ postStore.editingPost ? 'Save' : 'Create' }}
+          </button>
         </div>
         <div class="control">
-          <button type="reset" class="button is-link is-light" @click="postStore.toggleAddPostBtn()">Cancel</button>
+          <button
+            type="reset"
+            class="button is-link is-light"
+            @click="postStore.toggleAddPostBtn()"
+          >
+            Cancel
+          </button>
         </div>
       </div>
     </form>

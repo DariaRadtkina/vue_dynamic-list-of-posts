@@ -1,7 +1,7 @@
 <script setup>
 import AddPost from '../modules/AddPost.vue';
 import PostPreview from '../modules/PostPreview.vue';
-import { usePostStore } from '../../stores/posts';
+import { usePostStore } from '../../stores/postsStore';
 
 const postStore = usePostStore();
 </script>

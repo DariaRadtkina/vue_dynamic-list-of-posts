@@ -19,7 +19,6 @@ export default defineConfig([
       parserOptions: {
         ecmaVersion: 'latest',
         sourceType: 'module',
-        parser: 'vue-eslint-parser',
       },
     },
     rules: {

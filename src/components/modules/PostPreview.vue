@@ -4,8 +4,8 @@ import Comment from './Comment.vue';
 import NoCommentsYet from './NoCommentsYet.vue';
 import Loader from '../loader/Loader.vue';
 import AddComment from './AddComment.vue';
-import { usePostStore } from '../../stores/posts';
-import { useCommentStore } from '../../stores/comments';
+import { usePostStore } from '../../stores/postsStore';
+import { useCommentStore } from '../../stores/commentsStore';
 
 const postStore = usePostStore();
 const commentStore = useCommentStore();
@@ -42,7 +42,10 @@ function startEditing() {
         <span class="icon is-small is-right is-clickable" @click="startEditing">
           <i class="fas fa-pen-to-square"></i>
         </span>
-        <span class="icon is-small is-right has-text-danger is-clickable ml-3" @click="handleDeletePost(postStore.isCommentDetailsActive.id)">
+        <span
+          class="icon is-small is-right has-text-danger is-clickable ml-3"
+          @click="handleDeletePost(postStore.isCommentDetailsActive.id)"
+        >
           <i class="fas fa-trash"></i>
         </span>
       </div>
@@ -53,7 +56,10 @@ function startEditing() {
   <div class="block" v-else>
     <NoCommentsYet v-if="commentStore.commentsList.length === 0" />
     <Comment v-else />
-    <WriteCommentBtn v-if="!commentStore.isCommentFormVisible" @click="commentStore.toggleCommentForm()" />
+    <WriteCommentBtn
+      v-if="!commentStore.isCommentFormVisible"
+      @click="commentStore.toggleCommentForm()"
+    />
     <AddComment v-if="commentStore.isCommentFormVisible" />
   </div>
 </template>
