@@ -1,10 +1,5 @@
 import { defineStore } from 'pinia';
-import {
-  getUserPosts,
-  updatePost,
-  deletePost,
-  addNewPost,
-} from '../api/posts';
+import { getUserPosts, updatePost, deletePost, addNewPost } from '../api/posts';
 import { useUserStore } from './userStore';
 import { reactive } from 'vue';
 
