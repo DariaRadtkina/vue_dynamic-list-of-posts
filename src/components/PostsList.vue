@@ -77,7 +77,7 @@ async function startEditingComment(comment) {
                         }"
                         @click="postStore.toggleOpenPostBtn(post, commentStore)"
                       >
-                        Open
+                        {{ postStore.isCommentDetailsActive && post.id === postStore.isCommentDetailsActive.id ? 'Close' : 'Open' }}
                       </button>
                     </td>
                   </tr>

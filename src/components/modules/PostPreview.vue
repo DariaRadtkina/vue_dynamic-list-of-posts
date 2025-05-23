@@ -55,7 +55,7 @@ function startEditing() {
   <Loader v-if="commentStore.isCommentsListLoading" />
   <div class="block" v-else>
     <NoCommentsYet v-if="commentStore.commentsList.length === 0" />
-    <Comment v-else />
+    <Comment v-if="!commentStore.isCommentFormVisible" />
     <WriteCommentBtn
       v-if="!commentStore.isCommentFormVisible"
       @click="commentStore.toggleCommentForm()"

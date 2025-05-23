@@ -104,7 +104,7 @@ function clearBodyError() {
           <button
             type="reset"
             class="button is-link is-light"
-            @click="postStore.toggleOpenPostBtn(idPost, commentStore)"
+            @click="commentStore.toggleCommentForm();"
           >
             Cancel
           </button>
