@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref } from 'vue';
+import { onMounted } from 'vue';
 import { useUserStore } from '../stores/userStore';
 import { usePostStore } from '../stores/postsStore';
 import { useCommentStore } from '../stores/commentsStore';
@@ -12,6 +12,11 @@ const postStore = usePostStore();
 const commentStore = useCommentStore();
 
 onMounted(async () => {
+  if (!userStore.user) {
+    postStore.errorMessages.fetch = 'No user data found. Please login again.';
+    router.push('/login');
+    return;
+  }
   if (userStore.user && userStore.user.id > 0) {
     const userId = userStore.user.id;
     try {
@@ -24,9 +29,6 @@ onMounted(async () => {
   }
 });
 
-async function startEditingComment(comment) {
-  commentStore.startEditing(comment);
-}
 </script>
 
 <template>
@@ -50,6 +52,7 @@ async function startEditingComment(comment) {
               </div>
 
               <Loader v-if="postStore.isPostsListLoading" />
+              <div class="is-size-4" v-else-if="postStore.postsList.length === 0">No posts yet</div>
 
               <table
                 class="table is-fullwidth is-striped is-hoverable is-narrow"

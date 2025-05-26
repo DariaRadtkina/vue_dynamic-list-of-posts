@@ -78,8 +78,10 @@ function clearBodyError() {
       <div class="field" data-cy="NameField">
         <InputField
           :label="`Author Email`"
-          :input-id="'authorEmale'"
+          :input-id="'authorEmail'"
           :placeholder="'Your Email'"
+          :type="'email'"
+          :icon-left="'fas fa-envelope'"
           :error-message="commentStore.errorMessages.email"
           v-model="commentStore.newComment.email"
           @input="clearEmailError"

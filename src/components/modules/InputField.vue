@@ -1,11 +1,34 @@
 <script setup>
 import { defineProps, defineEmits } from 'vue';
 defineProps({
-  label: String,
-  inputId: String,
-  placeholder: String,
-  errorMessage: String,
-  modelValue: [String, Number],
+  label: {
+    type: String,
+    default: 'Label',
+  },
+  inputId: {
+    type: String,
+    default: 'input-field',
+  },
+  placeholder: {
+    type: String,
+    default: 'Enter text...',
+  },
+  errorMessage: {
+    type: String,
+    default: null,
+  },
+  type: {
+    type: String,
+    default: 'text',
+  },
+  iconLeft: {
+    type: String,
+    default: 'fas fa-user',
+  },
+  modelValue: {
+    type: [String, Number],
+    default: '', 
+  },
 });
 
 const emit = defineEmits(['update:modelValue']);
@@ -21,7 +44,7 @@ const updateValue = (event) => {
     </label>
     <div class="control has-icons-left has-icons-right">
       <input
-        type="text"
+        :type="type"
         :name="inputId"
         :id="inputId"
         :placeholder="placeholder"
@@ -30,8 +53,8 @@ const updateValue = (event) => {
         :value="modelValue"
         @input="updateValue"
       />
-      <span class="icon is-small is-left">
-        <i class="fas fa-user"></i>
+      <span v-if="iconLeft" class="icon is-small is-left">
+        <i :class="iconLeft"></i>
       </span>
 
       <span

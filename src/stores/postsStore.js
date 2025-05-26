@@ -1,22 +1,21 @@
 import { defineStore } from 'pinia';
 import { getUserPosts, updatePost, deletePost, addNewPost } from '../api/posts';
 import { useUserStore } from './userStore';
-import { reactive } from 'vue';
 
 export const usePostStore = defineStore('post', {
   state: () => ({
     postsList: [],
     isPostsListLoading: false,
-    errorMessages: reactive({
+    errorMessages: {
       fetch: null,
       title: null,
       body: null,
-    }),
+    },
     editingPost: null,
-    newPost: reactive({
+    newPost: {
       title: '',
       body: '',
-    }),
+    },
     isAddPostBtnActive: false,
     isCommentDetailsActive: null,
   }),

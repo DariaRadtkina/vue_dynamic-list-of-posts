@@ -8,6 +8,7 @@ import { defineConfig } from 'eslint/config';
 export default defineConfig([
   {
     files: ['**/*.{js,mjs,cjs,vue}'],
+    parser: 'vue-eslint-parser',
     plugins: {
       js,
       vue: pluginVue,
@@ -15,7 +16,6 @@ export default defineConfig([
     },
     languageOptions: {
       globals: globals.browser,
-      parser: 'vue-eslint-parser',
       parserOptions: {
         ecmaVersion: 'latest',
         sourceType: 'module',
